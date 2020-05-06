@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<h1 class="text-center">Estas son tus ventas mi amor ♥.♥</h1>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">N° Venta</th>
+      <th scope="col">Precio de compra</th>
+      <th scope="col">Precio de venta</th>
+      <th scope="col">Ganancia</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for sale in sales %}
+    <tr>
+      <th scope="row">{{ sale.id }}</th>
+      <td>{{ sale.total_purchase_amount }}</td>
+      <td>{{ sale.total_sale_amount }}</td>
+      <td>{{ sale.revenue }}</td>
+    </tr>
+  {% endfor %}
+  <tr>
+    <th class="text-center" colspan="3" scope="row">Total ganancias</th>
+    <td>{{ total_revenue }}</td>
+  </tr>
+  </tbody>
+</table>
