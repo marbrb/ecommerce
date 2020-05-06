@@ -11,10 +11,6 @@ class SaleAdmin(admin.ModelAdmin):
         'updated_at',
     )
 
-    filter_horizontal = (
-        'products',
-    )
-
     fields = (
         'products',
         'created_at',
@@ -22,6 +18,7 @@ class SaleAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = (
+        'products',
         'created_at',
         'updated_at',
     )

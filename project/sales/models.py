@@ -1,11 +1,27 @@
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
 class Sale(models.Model):
-    products = models.ManyToManyField(
-        'products.Product',
-        related_name='sales',
-        verbose_name='Productos'
+    # it should have this keys:
+    #   - id
+    #   - quantity
+    #   - purchase_amount
+    #   - sale_amount
+    products = JSONField(
+        verbose_name='Productos vendidos'
+    )
+
+    total_sale_amount = models.DecimalField(
+        max_digits=19,
+        decimal_places=2,
+        verbose_name='Precio de venta',
+    )
+
+    total_purchase_amount = models.DecimalField(
+        max_digits=19,
+        decimal_places=2,
+        verbose_name='Precio de compra',
     )
 
     created_at = models.DateTimeField(
@@ -17,20 +33,6 @@ class Sale(models.Model):
         auto_now=True,
         verbose_name='Fecha de última actualización',
     )
-
-    @property
-    def total_sale_amount(self):
-        total = 0
-        for product in self.products.all():
-            total += product.sale_price
-        return total
-
-    @property
-    def total_purchase_amount(self):
-        total = 0
-        for product in self.products.all():
-            total += product.purchase_price
-        return total
 
     @property
     def revenue(self):
