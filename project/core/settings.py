@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django_extensions',
 
     # Project apps
+    'core',
     'products',
     'sales',
 ]
@@ -83,6 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'makeup',
         'USER': 'admin',
+        'PASSWORD': 'demodemo',
         'HOST': 'localhost',
         'PORT': '5432',
     }

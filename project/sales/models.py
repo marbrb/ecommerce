@@ -5,9 +5,10 @@ from django.db import models
 class Sale(models.Model):
     # it should have this keys:
     #   - id
+    #   - name
     #   - quantity
-    #   - purchase_amount
-    #   - sale_amount
+    #   - purchase_price
+    #   - sale_price
     products = JSONField(
         verbose_name='Productos vendidos'
     )

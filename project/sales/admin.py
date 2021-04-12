@@ -13,6 +13,8 @@ class SaleAdmin(admin.ModelAdmin):
 
     fields = (
         'products',
+        'total_sale_amount',
+        'total_purchase_amount',
         'created_at',
         'updated_at',
     )
